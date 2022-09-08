@@ -6,7 +6,7 @@ import pandas as pd		# to easily parse json object and filter out data; require 
 from datetime import datetime	# to create unique tag into the default output filename
 
 
-def convert_jsonp_to_json(label_file, data_file, samples_file, label_col, output_format, outfile, outmaster):
+def merge_data_by_labels(label_file, data_file, samples_file, label_col, output_format, outfile, outmaster):
 
     tag = datetime.now().strftime("-%d-%m-%Y-%H%M%S")
 ###-- read inputs and create data structure
@@ -136,4 +136,4 @@ if __name__ == '__main__':
         sys.exit(1)
 
     args = parser.parse_args()
-    convert_jsonp_to_json(args.labels, args.data, args.samples, args.col, args.out, args.outfile, args.master)
+    merge_data_by_labels(args.labels, args.data, args.samples, args.col, args.out, args.outfile, args.master)
