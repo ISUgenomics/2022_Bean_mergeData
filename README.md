@@ -37,7 +37,7 @@ python3 data_matcher.py -l labels.xlsx -f data.xlsx -t samples.xlsx
 The exact copy of the input datafile [*data.xlsx*] with one additional column (next to the ARS label) is created [*output.xlsx* by default]. The new column contains the corresponding sample label. If there is no matching sample label, the error value -f -9999.99 is assigned.
 
 **master_output**<br>
-
+The exact copy of the input sample file [*sample.xlsx*] (containing the sample labels) is extended of the corresponding ARS label and all remaining data columns (taken from data_file). If there is no matching hit for a sample label, the values in the new columns will contain the default (-9999.99) for the missing data.
 
 
 
