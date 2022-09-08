@@ -13,7 +13,7 @@ def merge_data_by_labels(label_file, data_file, samples_file, label_col, output_
     labs = pd.read_excel(label_file, index_col=None, header=0)	# read xlsx file with pairs of matched labales (labels.xlsx, e.g., F-set_complete.xlsx)
     data = pd.read_excel(data_file, index_col=None, header=0)	# read xlsx file with data annotated by single label (data.xlsx, e.g., Sample_check_by_F-number.xlsx)
     cols = data.columns.tolist()                                # list of columns names in the data_file
-    dlab = data.columns.tolist()[label_col]			# header of the label column in data_file
+    dlab = cols[label_col]					# header of the label column in data_file
     lab1 = ''							# header of the column of the known label in label_file
     lab2 = ''							# header of the column of the other (matching) label in label_file
 
