@@ -3,7 +3,7 @@ Add matching labels from the reference 2-column file of label pairs.
 
 ## App description
 The application enables: <br>
-1) adding matching labels from the reference file of label pairs, and <br>
+1) adding matching labels from the reference file of label pairs into the data file, <br>
 2) transfering annotated data into the original (master) file of samples with assigned error_value=-9999.99 for missing data. <br>
 * the user has to provide a 2-column file with pairs of corresponding labels (e.g., ARS label and Sample num) **[labels]**
 * the user has to provide a multi-column file annotated with one of the reference labels (e.g., ARS label) **[data]**
