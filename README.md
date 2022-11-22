@@ -6,7 +6,7 @@
 <table>
   <tr> <th>Algorithm</th> <th>Notes</th> </tr>
   <tr> <td>
-        <img src="assets/algorithm.png" alt="Merge data app" width="600"><br>
+        <img src="assets/algorithm.png" alt="Merge data app" width="800"><br>
         <i>The figure shows the algorithm of merging two files by common column.</i>
        </td> <td>
         <li> both input files [<i>data, labels</i>] should be a column-like text file </li>
@@ -22,7 +22,7 @@
 ### App description
 The application enables: <br>
 1) adding matching labels from the reference file of label pairs into the data file, <br>
-2) transfering annotated data into the original (master) file of samples with assigned error_value=-9999.99 for missing data. <br>
+2) transfering annotated data into the original (master) file of samples with assigned *error_value=-9999.99* for missing data. <br>
 
 ### Inputs
 The user has to provide input files:
