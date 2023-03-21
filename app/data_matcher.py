@@ -26,7 +26,7 @@ def merge_data_by_labels(label_file, data_file, samples_file, label_col, output_
 
 ###-- assign matching labels in datafile
     data.insert(label_col+1, lab2, '')				# insert new label column into data (next to known label)				
-    for idx, i in data[dlab].items():
+    for idx, i in data[dlab].iteritems():
         val = labs[labs[lab1] == i]				# find matching row in labels dataframe
         if len(val) > 0:
             data.at[idx, lab2] = val[lab2].values[0]		# assign matching label if exists
@@ -38,8 +38,8 @@ def merge_data_by_labels(label_file, data_file, samples_file, label_col, output_
     if samples_file != '':
         master = pd.read_excel(samples_file, index_col=None, header=0)
         header = master.columns.tolist()[0]
-        [master.insert(idx+1, i, '') for idx, i in enumerate(cols)]
-        for idx, i in master[header].items():
+        master = master.reindex(columns = master.columns.tolist() + cols)  # add empty columns					
+        for idx, i in master[header].iteritems():			   # match data to the order of labels in master
             val = data[data[lab2] == i]
             if len(val) > 0:
                 for col in cols:
