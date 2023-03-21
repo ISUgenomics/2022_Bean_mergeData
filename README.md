@@ -248,7 +248,7 @@ Below is the preview of the required `data` and `labels` input files, as well as
 
 ![](assets/inputs.png)
 
-### Task
+### Tasks
 
 There are two tasks to performe:
 1. [REQUIRED] Adding matching `sample IDs` from the <b>labels</b> file into the <b>data</b> file. The **data_output** file size is equal to the <b>data</b> input file.
@@ -256,15 +256,18 @@ There are two tasks to performe:
 
 ![](assets/outputs.png)
 
+
+### Practical Examples
+
 <div style="background: #cff4fc; padding: 15px;">
 <span style="font-weight:800;">NOTE:</span>
-<br><span style="font-style:italic;">
+<br><i>
 Depending on your operating system and Python configuration, you should use a <b>python</b> or <b>python3</b> keyword to indicate the correct interpreter for the "data_matcher.py" script. <br>
-The script requires <b>Python 3.8</b> or later release. To check the version of your Python installation, type in the terminal or command prompt:</span> <br>
+The script requires <b>Python 3.8</b> or later release. To check the version of your Python installation, type in the terminal or command prompt:</i>
 <code style="background-color: #e4f0f0; padding: 10px 10px; width:100%; display: block; margin-top: 10px; font-size:0.8em;">
 python --version
 </code><br>
-<i>If the returned Python version is lower than 3.8, try again by typing:</i> <br>
+<i>If the returned Python version is lower than 3.8, try again by typing:</i>
 <code style="background-color: #e4f0f0; padding: 10px 10px; width:100%; display: block; margin-top: 10px; font-size:0.8em;">
 python3 --version
 </code><br>
@@ -273,9 +276,9 @@ python3 --version
 
 <div style="background: #dff5b3; padding: 15px;">
 <span style="font-weight:800;">PRO TIP:</span>
-<br><span style="font-style:italic;">
+<br><i>
 You can use all built-in flags [-l, -f, -t, -c, -n, -m, -o] for a given script run but each of them only once. <b>The value following the flag can be customized by users depending on their needs and the datasets used.</b> The type of values matching the flags are specified in the <a href="https://github.com/ISUgenomics/2022_Bean_mergeData#options-available-in-the-application">Options available in the application</a>. For files (inputs and outputs), they should be a string, while for all other parameters, they should be an integer.
-</span>
+</i>
 </div><br>
 
 <span style="color: #ff3870;font-weight: 500;">For the purpose of this tutorial, we use simplified names of input and output files to make it easier for the user to know which flag matches each file type.</span> So, please feel free to use your original or customized filenames without renaming them to <i>"labels.xlsx", "data.xlsx",</i> and <i>"samples.xlsx"</i>.
@@ -302,15 +305,12 @@ python3 data_matcher.py -l labels.xlsx -f data.xlsx -t samples.xlsx
 python3 data_matcher.py -l labels.xlsx -f data.xlsx -t samples.xlsx -n cutom_data_output -m cutom_master_output
 ```
 
-<div style="background: #cff4fc; padding: 15px;">
-<span style="font-weight:800;">NOTE:</span>
-<br><span style="font-style:italic;">
-The user-provided filenames can be randomized by a variable, for example depending on the date (added as a unique tag): <br>
-</span>
+<b>NOTE:</b> <br>
+<br><i>The user-provided filenames can be randomized by a variable, for example depending on the date (added as a unique tag):</i>
 <code style="background-color: #e4f0f0; padding: 10px 10px; width:100%; display: block; margin-top: 10px; font-size:0.8em;">
 -n custom_name-$(date +"%d-%m-%Y-%s")
 </code>
-</div><br>
+
 
 **4. Specify the index of the label column in the `data` file:**
 
