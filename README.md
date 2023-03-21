@@ -360,7 +360,7 @@ Then, download the current version of the python script from the GitHub reposito
 wget https://raw.githubusercontent.com/ISUgenomics/2022_Bean_mergeData/main/app/data_matcher.py
 ```
 
-or if you have it already, then copy it locally using the `cp data_matcher.py cd ~/PYTHON_SCRIPTS` command in the location where the script is stored.
+or if you have it already, then copy it locally using the `cp data_matcher.py ~/PYTHON_SCRIPTS/` command in the location where the script is stored.
 
 Then, navigate to the location of your dataset, replacing the content of the `< >` with the path to the selected directory:
 ```
