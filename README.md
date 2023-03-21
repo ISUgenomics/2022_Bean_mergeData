@@ -259,8 +259,8 @@ There are two tasks to performe:
 
 ### Practical Examples
 
-<div style="background: #cff4fc; padding: 15px;">
-<span style="font-weight:800;">NOTE:</span>
+
+<b>NOTE:</b>
 <br><i>
 Depending on your operating system and Python configuration, you should use a <b>python</b> or <b>python3</b> keyword to indicate the correct interpreter for the "data_matcher.py" script. <br>
 The script requires <b>Python 3.8</b> or later release. To check the version of your Python installation, type in the terminal or command prompt:</i>
@@ -272,16 +272,15 @@ python --version
 python3 --version
 </code><br>
 <i>If the returned value is still lower than 3.8, then you need to install a new instance of Python in version 3.8 or newer.</i>
-</div><br>
 
-<div style="background: #dff5b3; padding: 15px;">
-<span style="font-weight:800;">PRO TIP:</span>
-<br><i>
+
+<b>PRO TIP:</b> <br>
+<i>
 You can use all built-in flags [-l, -f, -t, -c, -n, -m, -o] for a given script run but each of them only once. <b>The value following the flag can be customized by users depending on their needs and the datasets used.</b> The type of values matching the flags are specified in the <a href="https://github.com/ISUgenomics/2022_Bean_mergeData#options-available-in-the-application">Options available in the application</a>. For files (inputs and outputs), they should be a string, while for all other parameters, they should be an integer.
 </i>
-</div><br>
 
-<span style="color: #ff3870;font-weight: 500;">For the purpose of this tutorial, we use simplified names of input and output files to make it easier for the user to know which flag matches each file type.</span> So, please feel free to use your original or customized filenames without renaming them to <i>"labels.xlsx", "data.xlsx",</i> and <i>"samples.xlsx"</i>.
+
+<b>For the purpose of this tutorial, we use simplified names of input and output files to make it easier for the user to know which flag matches each file type.</b> So, please feel free to use your original or customized filenames without renaming them to <i>"labels.xlsx", "data.xlsx",</i> and <i>"samples.xlsx"</i>.
 
 **1. Minimal arguments to generate `data_output`:**
 
