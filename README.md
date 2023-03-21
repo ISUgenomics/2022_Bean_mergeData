@@ -256,17 +256,113 @@ There are two tasks to performe:
 
 ![](assets/outputs.png)
 
-* minimal arguments to generate `data_output`:<br>
+<div style="background: #cff4fc; padding: 15px;">
+<span style="font-weight:800;">NOTE:</span>
+<br><span style="font-style:italic;">
+Depending on your operating system and Python configuration, you should use a <b>python</b> or <b>python3</b> keyword to indicate the correct interpreter for the "data_matcher.py" script. <br>
+The script requires <b>Python 3.8</b> or later release. To check the version of your Python installation, type in the terminal or command prompt:</span> <br>
+<code style="background-color: #e4f0f0; padding: 10px 10px; width:100%; display: block; margin-top: 10px; font-size:0.8em;">
+python --version
+</code><br>
+<i>If the returned Python version is lower than 3.8, try again by typing:</i> <br>
+<code style="background-color: #e4f0f0; padding: 10px 10px; width:100%; display: block; margin-top: 10px; font-size:0.8em;">
+python3 --version
+</code><br>
+<i>If the returned value is still lower than 3.8, then you need to install a new instance of Python in version 3.8 or newer.</i>
+</div><br>
+
+<div style="background: #dff5b3; padding: 15px;">
+<span style="font-weight:800;">PRO TIP:</span>
+<br><span style="font-style:italic;">
+You can use all built-in flags [-l, -f, -t, -c, -n, -m, -o] for a given script run but each of them only once. <b>The value following the flag can be customized by users depending on their needs and the datasets used.</b> The type of values matching the flags are specified in the <a href="https://github.com/ISUgenomics/2022_Bean_mergeData#options-available-in-the-application">Options available in the application</a>. For files (inputs and outputs), they should be a string, while for all other parameters, they should be an integer.
+</span>
+</div><br>
+
+<span style="color: #ff3870;font-weight: 500;">For the purpose of this tutorial, we use simplified names of input and output files to make it easier for the user to know which flag matches each file type.</span> So, please feel free to use your original or customized filenames without renaming them to <i>"labels.xlsx", "data.xlsx",</i> and <i>"samples.xlsx"</i>.
+
+**1. Minimal arguments to generate `data_output`:**
 
 ```
 python3 data_matcher.py -l labels.xlsx -f data.xlsx
 ```
+<i>This run will generate a single file with a name randomized by a current date in the format day-month-year-seconds, e.g.,</i> `data_output-17-03-2023-104731.xlsx`
 
-* minimal arguments to generate `data_output` and `master_output`:<br>
+**2. Minimal arguments to generate `data_output` and `master_output`:**
 
 ```
 python3 data_matcher.py -l labels.xlsx -f data.xlsx -t samples.xlsx
 ```
+<i>This run will generate two files with names randomized by a current date in the format day-month-year-seconds, e.g.,</i> `data_output-17-03-2023-104731.xlsx` *and* `master_output-17-03-2023-104731.xlsx`
+
+**3. Customize names of the output files:**
+  * use `-n` flag to change the name of the `data_output` file
+  * use `-m` flag to change the name of the `master_output` file
+
+```
+python3 data_matcher.py -l labels.xlsx -f data.xlsx -t samples.xlsx -n cutom_data_output -m cutom_master_output
+```
+
+<div style="background: #cff4fc; padding: 15px;">
+<span style="font-weight:800;">NOTE:</span>
+<br><span style="font-style:italic;">
+The user-provided filenames can be randomized by a variable, for example depending on the date (added as a unique tag): <br>
+</span>
+<code style="background-color: #e4f0f0; padding: 10px 10px; width:100%; display: block; margin-top: 10px; font-size:0.8em;">
+-n custom_name-$(date +"%d-%m-%Y-%s")
+</code>
+</div><br>
+
+**4. Specify the index of the label column in the `data` file:**
+
+* use `-c` flag followed by the index of the **label** column, if other than the first column, i.e., 0 *(in Python, indexing starts from 0 instead of 1)*
+
+```
+python3 data_matcher.py -l labels.xlsx -f data.xlsx -c 2
+```
+<i>In this variant, the script will assume that the label column is a third column in the <b>"data"</b> file. This column has the index=2 because in Python we count from 0: 0 (first), 1 (second), and 2 (third). When the flag <b>-c</b> is NOT used, the script assumes that the label column is the first column with index 0.</i>
+
+**5. Customize the format of the output files**
+
+* use `-o` flag to select the format of the output files: 0 - xlsx, 1 - csv; default=0
+
+```
+python3 data_matcher.py -l labels.xlsx -f data.xlsx -o 1
+```
+<i>This run will save the <b>"output_data"</b> file in CSV format instead of the Excel file (.xlsx). When the <b>-o</b> flag is NOT used, the script saves all outputs in the default Excel format.</i>
+
+
+**6. Example of the fully customized run:**
+
+```
+python3 data_matcher.py -l reference_labels.xlsx -f our_data.xlsx -t experimental_samples.xlsx -n cutom_data_output -m cutom_master_output -c 1 -o 1
+```
+<i>This run will use three input files (with their original names), all located in the same directory as the data_matcher.py script. The run is executed from within this directory. The second column (so with index 1) from the file provided with the <b>-l</b> flag will be used as a label column. Two output files will be generated, both with names provided by the user after the corresponding flags (<b>-n</b> and <b>-m</b>). Both files will be saved in CSV format instead of the default Excel format.</i>
+
+**7. You can run the script from any location in the file system:**
+
+There is no need to copy the Python script into each directory with a new dataset. You can store this and other scripts in a selected location in the file system. For example, create the `PYTHON_SCRIPTS` directory in your home directory by typing:
+```
+mkdir ~/PYTHON_SCRIPTS
+cd ~/PYTHON_SCRIPTS
+```
+Then, download the current version of the python script from the GitHub repository:
+```
+wget https://raw.githubusercontent.com/ISUgenomics/2022_Bean_mergeData/main/app/data_matcher.py
+```
+
+or if you have it already, then copy it locally using the `cp data_matcher.py cd ~/PYTHON_SCRIPTS` command in the location where the script is stored.
+
+Then, navigate to the location of your dataset, replacing the content of the `< >` with the path to the selected directory:
+```
+cd <path/to/your/dataset>
+```
+
+Now, you are ready to call the script in the external location by specifying its path:
+```
+python3 ~/PYTHON_SCRIPTS/data_matcher.py -l reference_labels.xlsx -f our_data.xlsx -t experimental_samples.xlsx -n cutom_data_output -m cutom_master_output -c 1 -o 1
+```
+*If you place the script on different path (i.e., in different location) than ~/PYTHON_SCRIPTS/, then you need to provide the corresponding path instead of the one from this example.*
+
 
 ## Input data and outputs
 
