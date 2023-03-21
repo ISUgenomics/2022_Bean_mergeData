@@ -264,13 +264,13 @@ There are two tasks to performe:
 <br><i>
 Depending on your operating system and Python configuration, you should use a <b>python</b> or <b>python3</b> keyword to indicate the correct interpreter for the "data_matcher.py" script. <br>
 The script requires <b>Python 3.8</b> or later release. To check the version of your Python installation, type in the terminal or command prompt:</i>
-<code style="background-color: #e4f0f0; padding: 10px 10px; width:100%; display: block; margin-top: 10px; font-size:0.8em;">
+```
 python --version
-</code><br>
+```
 <i>If the returned Python version is lower than 3.8, try again by typing:</i>
-<code style="background-color: #e4f0f0; padding: 10px 10px; width:100%; display: block; margin-top: 10px; font-size:0.8em;">
+```
 python3 --version
-</code><br>
+```
 <i>If the returned value is still lower than 3.8, then you need to install a new instance of Python in version 3.8 or newer.</i>
 
 
@@ -289,12 +289,14 @@ python3 data_matcher.py -l labels.xlsx -f data.xlsx
 ```
 <i>This run will generate a single file with a name randomized by a current date in the format day-month-year-seconds, e.g.,</i> `data_output-17-03-2023-104731.xlsx`
 
+
 **2. Minimal arguments to generate `data_output` and `master_output`:**
 
 ```
 python3 data_matcher.py -l labels.xlsx -f data.xlsx -t samples.xlsx
 ```
 <i>This run will generate two files with names randomized by a current date in the format day-month-year-seconds, e.g.,</i> `data_output-17-03-2023-104731.xlsx` *and* `master_output-17-03-2023-104731.xlsx`
+
 
 **3. Customize names of the output files:**
   * use `-n` flag to change the name of the `data_output` file
@@ -303,12 +305,11 @@ python3 data_matcher.py -l labels.xlsx -f data.xlsx -t samples.xlsx
 ```
 python3 data_matcher.py -l labels.xlsx -f data.xlsx -t samples.xlsx -n cutom_data_output -m cutom_master_output
 ```
-
-<b>NOTE:</b> <br>
+<br><b>NOTE:</b>
 <br><i>The user-provided filenames can be randomized by a variable, for example depending on the date (added as a unique tag):</i>
-<code style="background-color: #e4f0f0; padding: 10px 10px; width:100%; display: block; margin-top: 10px; font-size:0.8em;">
+```
 -n custom_name-$(date +"%d-%m-%Y-%s")
-</code>
+```
 
 
 **4. Specify the index of the label column in the `data` file:**
