@@ -282,6 +282,8 @@ You can use all built-in flags [-l, -f, -t, -c, -n, -m, -o] for a given script r
 
 <b>For the purpose of this tutorial, we use simplified names of input and output files to make it easier for the user to know which flag matches each file type.</b> So, please feel free to use your original or customized filenames without renaming them to <i>"labels.xlsx", "data.xlsx",</i> and <i>"samples.xlsx"</i>.
 
+<br>
+
 **1. Minimal arguments to generate `data_output`:**
 
 ```
@@ -289,6 +291,7 @@ python3 data_matcher.py -l labels.xlsx -f data.xlsx
 ```
 <i>This run will generate a single file with a name randomized by a current date in the format day-month-year-seconds, e.g.,</i> `data_output-17-03-2023-104731.xlsx`
 
+<br>
 
 **2. Minimal arguments to generate `data_output` and `master_output`:**
 
@@ -297,6 +300,7 @@ python3 data_matcher.py -l labels.xlsx -f data.xlsx -t samples.xlsx
 ```
 <i>This run will generate two files with names randomized by a current date in the format day-month-year-seconds, e.g.,</i> `data_output-17-03-2023-104731.xlsx` *and* `master_output-17-03-2023-104731.xlsx`
 
+<br>
 
 **3. Customize names of the output files:**
   * use `-n` flag to change the name of the `data_output` file
@@ -311,6 +315,7 @@ python3 data_matcher.py -l labels.xlsx -f data.xlsx -t samples.xlsx -n cutom_dat
 -n custom_name-$(date +"%d-%m-%Y-%s")
 ```
 
+<br>
 
 **4. Specify the index of the label column in the `data` file:**
 
@@ -321,6 +326,8 @@ python3 data_matcher.py -l labels.xlsx -f data.xlsx -c 2
 ```
 <i>In this variant, the script will assume that the label column is a third column in the <b>"data"</b> file. This column has the index=2 because in Python we count from 0: 0 (first), 1 (second), and 2 (third). When the flag <b>-c</b> is NOT used, the script assumes that the label column is the first column with index 0.</i>
 
+<br>
+
 **5. Customize the format of the output files**
 
 * use `-o` flag to select the format of the output files: 0 - xlsx, 1 - csv; default=0
@@ -330,6 +337,7 @@ python3 data_matcher.py -l labels.xlsx -f data.xlsx -o 1
 ```
 <i>This run will save the <b>"output_data"</b> file in CSV format instead of the Excel file (.xlsx). When the <b>-o</b> flag is NOT used, the script saves all outputs in the default Excel format.</i>
 
+<br>
 
 **6. Example of the fully customized run:**
 
@@ -337,6 +345,8 @@ python3 data_matcher.py -l labels.xlsx -f data.xlsx -o 1
 python3 data_matcher.py -l reference_labels.xlsx -f our_data.xlsx -t experimental_samples.xlsx -n cutom_data_output -m cutom_master_output -c 1 -o 1
 ```
 <i>This run will use three input files (with their original names), all located in the same directory as the data_matcher.py script. The run is executed from within this directory. The second column (so with index 1) from the file provided with the <b>-l</b> flag will be used as a label column. Two output files will be generated, both with names provided by the user after the corresponding flags (<b>-n</b> and <b>-m</b>). Both files will be saved in CSV format instead of the default Excel format.</i>
+
+<br>
 
 **7. You can run the script from any location in the file system:**
 
