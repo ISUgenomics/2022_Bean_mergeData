@@ -371,7 +371,7 @@ Now, you are ready to call the script in the external location by specifying its
 ```
 python3 ~/PYTHON_SCRIPTS/data_matcher.py -l reference_labels.xlsx -f our_data.xlsx -t experimental_samples.xlsx -n cutom_data_output -m cutom_master_output -c 1 -o 1
 ```
-*If you place the script on different path (i.e., in different location) than ~/PYTHON_SCRIPTS/, then you need to provide the corresponding path instead of the one from this example.*
+*If you place the script on different path (i.e., in different location) than ~/PYTHON_SCRIPTS/, then you need to provide the corresponding path instead of the one from this example. You can also provide an individual path to each file (input or output) if they are stored in a different location than your current workdir (i.e., the location from which you run the command).*
 
 
 ## Input data and outputs
