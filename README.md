@@ -344,7 +344,7 @@ python3 data_matcher.py -l labels.xlsx -f data.xlsx -o 1
 ```
 python3 data_matcher.py -l reference_labels.xlsx -f our_data.xlsx -t experimental_samples.xlsx -n cutom_data_output -m cutom_master_output -c 1 -o 1
 ```
-<i>This run will use three input files (with their original names), all located in the same directory as the data_matcher.py script. The run is executed from within this directory. The second column (so with index 1) from the file provided with the <b>-l</b> flag will be used as a label column. Two output files will be generated, both with names provided by the user after the corresponding flags (<b>-n</b> and <b>-m</b>). Both files will be saved in CSV format instead of the default Excel format.</i>
+<i>This run will use three input files (with their original names), all located in the same directory as the data_matcher.py script. The run is executed from within this directory. The second column (so with index 1) from the data file provided with the <b>-f</b> flag will be used as a label column. Two output files will be generated, both with names provided by the user after the corresponding flags (<b>-n</b> and <b>-m</b>). Both files will be saved in CSV format instead of the default Excel format.</i>
 
 <br>
 
